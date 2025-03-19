@@ -70,7 +70,8 @@ const getMessageList = () => {
 setupMock({
   setup: () => {
     Mock.mock(new RegExp('/api/message/list'), () => {
-      return successResponseWrap([]||getMessageList())
+      return []
+      // return successResponseWrap([]||getMessageList())
     })
 
     Mock.mock(new RegExp('/api/message/read'), (params: { body: string }) => {

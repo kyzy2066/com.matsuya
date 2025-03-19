@@ -35,7 +35,7 @@ module.exports = {
       },
     },
   },
-  rules: {   
+  rules: {
     'prettier/prettier': 1,
     'vue/no-reserved-component-names': 0,
     // Vue: Recommended rules to be closed or modify
@@ -69,6 +69,13 @@ module.exports = {
     'import/no-extraneous-dependencies': 0,
     "no-unused-vars": "off", // 允许未使用的变量
     "prettier/prettier": "off", // 关闭 Prettier 格式化
-    "@typescript-eslint/no-unused-vars": "off" // 允许 TS 未使用的变量
+    "@typescript-eslint/no-unused-vars": "off",// 允许 TS 未使用的变量、
+    'vue/attribute-hyphenation': 'off',
+    "vue/attributes-order": "off",
+    "vue/first-attribute-linebreak": "off",
+    "vue/attributes-order": "off",           // 关闭属性顺序检查
+    "vue/first-attribute-linebreak": "off",  // 关闭属性换行检查
+    "vue/html-indent": "off",                // 关闭 HTML 缩进检查
+    "vue/max-attributes-per-line": "off"
   },
 }

@@ -1,17 +1,12 @@
 <template>
   <a-dropdown trigger="contextMenu" :popup-max-height="false" @select="actionSelect">
-    <span
-      class="arco-tag arco-tag-size-medium arco-tag-checked"
-      :class="{ 'link-activated': itemData.fullPath === $route.fullPath }"
-      @click="goto(itemData)"
-    >
+    <span class="arco-tag arco-tag-size-medium arco-tag-checked"
+      :class="{ 'link-activated': itemData.fullPath === $route.fullPath }" @click="goto(itemData)">
       <span class="tag-link">
         {{ $t(itemData.title) }}
       </span>
-      <span
-        class="arco-icon-hover arco-tag-icon-hover arco-icon-hover-size-medium arco-tag-close-btn"
-        @click.stop="tagClose(itemData, index)"
-      >
+      <span class="arco-icon-hover arco-tag-icon-hover arco-icon-hover-size-medium arco-tag-close-btn"
+        @click.stop="tagClose(itemData, index)">
         <icon-close />
       </span>
     </span>
@@ -64,9 +59,7 @@ enum Eaction {
 const props = defineProps({
   itemData: {
     type: Object as PropType<TagProps>,
-    default() {
-      return []
-    },
+    default: () => ({})
   },
   index: {
     type: Number,
@@ -160,28 +153,35 @@ const actionSelect = async (value: any) => {
   color: var(--color-text-2);
   text-decoration: none;
 }
+
 .link-activated {
   color: rgb(var(--link-6));
+
   .tag-link {
     color: rgb(var(--link-6));
   }
-  & + .arco-tag-close-btn {
+
+  &+.arco-tag-close-btn {
     color: rgb(var(--link-6));
   }
 }
+
 :deep(.arco-dropdown-option-content) {
   span {
     margin-left: 10px;
   }
 }
+
 .arco-dropdown-open {
   .tag-link {
     color: rgb(var(--danger-6));
   }
+
   .arco-tag-close-btn {
     color: rgb(var(--danger-6));
   }
 }
+
 .sperate-line {
   border-bottom: 1px solid var(--color-neutral-3);
 }

@@ -14,13 +14,14 @@ import { computed } from 'vue'
 
 const { currentLocale } = useLocale()
 const locale = computed(() => {
-  switch (currentLocale.value) {
-    case 'zh-CN':
-      return zhCN
-    case 'en-US':
-      return enUS
-    default:
-      return enUS
-  }
+  return enUS
+  // switch (currentLocale.value) {
+  //   case 'zh-CN':
+  //     return zhCN
+  //   case 'en-US':
+  //     return enUS
+  //   default:
+  //     return enUS
+  // }
 })
 </script>

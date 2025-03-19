@@ -31,7 +31,8 @@
       <a-table :columns="columns" style="margin-bottom: 20px;" :data="tbData1" :pagination="false" size="mini" />
       <a-table :columns="columns2" :data="tbData2" style="margin-bottom: 20px;" :pagination="false" size="mini" />
 
-      <a-table :columns="columns3" :data="tbData3" :pagination="false" class="t3" size="mini" />
+      <a-table :columns="columns3" :data="tbData3" :pagination="false" class="t3"
+        :row-class="((_, e) => e === 0||e === 1||e === 19 ? 'spRow' : '')" size="mini" />
 
       <!-- <a-table :columns="columns" :data="tbData" size="mini" />
       <a-table :columns="columns" :data="tbData" size="mini" /> -->
@@ -69,6 +70,7 @@ const columns1 = columns.map((i) => {
   }
 })
 const columns2 = columns.map((i, e) => {
+  // console.log(i)
   return {
 
     ...i, headerCellStyle: {
@@ -138,7 +140,7 @@ const fetchData = async () => {
   // max-height: 425px;
 }
 
-:deep(.rowclass2>.arco-table-td) {
-  background-color: #cad9dd !important;
+:deep(.spRow>.arco-table-td) {
+  background-color: #81e2ff !important;
 }
 </style>

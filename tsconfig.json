@@ -22,6 +22,7 @@
     "skipLibCheck": true, // 忽略 node_modules 里的类型检查
     "noImplicitAny": false, // 允许隐式 any
     "strict": false,
+
   },
   "include": [
     "src/**/*",
