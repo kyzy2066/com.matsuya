@@ -3,6 +3,7 @@ import Mock from 'mockjs'
 
 import { MockParams } from '@/types/mock'
 import { isLogin } from '@/utils/auth'
+import imgSrc from '@/assets/favicon.ico'
 
 setupMock({
   setup() {
@@ -13,8 +14,8 @@ setupMock({
       if (isLogin()) {
         const role = window.localStorage.getItem('userRole') || 'admin'
         return successResponseWrap({
-          name: '王立群',
-          avatar: 'https://i.gtimg.cn/club/item/face/img/2/15922_100.gif',
+          name: 'Matsuya Ginza',
+          avatar: imgSrc,
           email: 'wangliqun@email.com',
           job: 'frontend',
           jobName: '前端艺术家',

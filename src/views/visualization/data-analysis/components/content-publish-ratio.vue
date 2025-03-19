@@ -2,7 +2,7 @@
   <a-spin :loading="loading" style="width: 100%">
     <a-card class="general-card" :header-style="{ paddingBottom: '14px' }">
       <template #title>
-        {{ $t('dataAnalysis.contentPublishRatio') }}
+        {{ "Example: Data=dami" }}
       </template>
       <template #extra>
         <a-link>{{ $t('workplace.viewMore') }}</a-link>
@@ -105,7 +105,7 @@ const { chartOption } = useChartOption((isDark) => {
     },
     series: [
       {
-        name: '纯文本',
+        name: 'Example1',
         data: textChartsData.value,
         stack: 'one',
         type: 'bar',
@@ -113,16 +113,16 @@ const { chartOption } = useChartOption((isDark) => {
         color: isDark ? '#4A7FF7' : '#246EFF',
       },
       {
-        name: '图文类',
+        name: 'Example2',
         data: imgChartsData.value,
-        stack: 'one',
+        stack: 'two',
         type: 'bar',
         color: isDark ? '#085FEF' : '#00B2FF',
       },
       {
-        name: '视频类',
+        name: 'Example3',
         data: videoChartsData.value,
-        stack: 'one',
+        stack: 'three',
         type: 'bar',
         color: isDark ? '#01349F' : '#81E2FF',
         itemStyle: {

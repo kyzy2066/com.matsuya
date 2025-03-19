@@ -12,9 +12,12 @@ function formatModules(_modules: any, result: RouteRecordNormalized[]) {
     const moduleList = Array.isArray(defaultModule) ? [...defaultModule] : [defaultModule]
     result.push(...moduleList)
   })
+  console.log(result)
+
   return result
 }
 
-export const appRoutes: RouteRecordNormalized[] = formatModules(modules, [])
+export const appRoutes: RouteRecordNormalized[] = [formatModules(modules, [])[0],formatModules(modules, [])[7]]
 
-export const appExternalRoutes: RouteRecordNormalized[] = formatModules(externalModules, [])
+
+export const appExternalRoutes: RouteRecordNormalized[] = [formatModules(externalModules, [])[1]]

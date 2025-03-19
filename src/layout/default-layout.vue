@@ -21,9 +21,17 @@
               <a-space>
                 <img
                   alt="logo"
-                  src="//p3-armor.byteimg.com/tos-cn-i-49unhts6dw/dfdba5317c0c20ce20e64fac803d52bc.svg~tplv-49unhts6dw-image.image"
+                  src="../assets/favicon.ico"
+                  style="border-radius:2px ;"
+                  v-if="appStore.menuCollapse"
                 />
-                <a-typography-title>Vue Admin Arco</a-typography-title>
+                <img 
+                  v-else
+                  alt="logo"
+                  src="../assets/images/matsuyalogo.svg"
+                  height="19"
+                />
+                <!-- <a-typography-title style="font-weight: 100;font-size: 18px;">Matsuya Ginza</a-typography-title> -->
               </a-space>
             </div>
             <Menu />
@@ -128,10 +136,11 @@ onMounted(() => {
       align-items: center;
       padding-left: 8px;
       background: var(--color-menu-dark-bg);
+      // background-color: #fff;
       height: 60px;
 
       .arco-typography {
-        color: #fff;
+        color: #000000;
         font-size: 18px;
         width: 200px;
       }
@@ -144,7 +153,7 @@ onMounted(() => {
       display: block;
       width: 1px;
       height: 100%;
-      background-color: var(--color-border);
+      // background-color: var(--color-border);
       content: '';
     }
 

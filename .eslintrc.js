@@ -2,7 +2,7 @@
 const path = require('path')
 
 module.exports = {
-  root: true,
+  root: false,
   parser: 'vue-eslint-parser',
   parserOptions: {
     // Parser that checks the content of the <script> tag
@@ -17,9 +17,10 @@ module.exports = {
     browser: true,
     node: true,
   },
-  plugins: ['@typescript-eslint'],
+  plugins: [
+    '@typescript-eslint'
+  ],
   extends: [
-    // Airbnb JavaScript Style Guide https://github.com/airbnb/javascript
     'airbnb-base',
     'plugin:@typescript-eslint/recommended',
     'plugin:import/recommended',
@@ -34,7 +35,7 @@ module.exports = {
       },
     },
   },
-  rules: {
+  rules: {   
     'prettier/prettier': 1,
     'vue/no-reserved-component-names': 0,
     // Vue: Recommended rules to be closed or modify
@@ -66,5 +67,8 @@ module.exports = {
     'no-param-reassign': 0,
     'prefer-regex-literals': 0,
     'import/no-extraneous-dependencies': 0,
+    "no-unused-vars": "off", // 允许未使用的变量
+    "prettier/prettier": "off", // 关闭 Prettier 格式化
+    "@typescript-eslint/no-unused-vars": "off" // 允许 TS 未使用的变量
   },
 }

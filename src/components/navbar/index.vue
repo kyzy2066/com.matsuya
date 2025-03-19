@@ -1,26 +1,23 @@
 <template>
-  <div class="navbar">
+  <div class="navbar" ref="navbar">
     <div class="left-side">
       <a-space>
-        <icon-menu-fold
-          v-if="!topMenu && appStore.device === 'mobile'"
-          style="font-size: 22px; cursor: pointer"
-          @click="toggleDrawerMenu"
-        />
+        <icon-menu-fold v-if="!topMenu && appStore.device === 'mobile'" style="font-size: 22px; cursor: pointer"
+          @click="toggleDrawerMenu" />
       </a-space>
     </div>
     <ul class="right-side">
       <li>
-        <a-tooltip :content="$t('settings.search')">
+        <!-- <a-tooltip :content="$t('settings.search')">
           <a-button class="nav-btn" type="outline" :shape="'circle'">
             <template #icon>
               <icon-search />
             </template>
           </a-button>
-        </a-tooltip>
+        </a-tooltip> -->
       </li>
       <li>
-        <a-tooltip :content="$t('settings.language')">
+        <!-- <a-tooltip :content="$t('settings.language')">
           <a-button class="nav-btn" type="outline" :shape="'circle'" @click="setDropDownVisible">
             <template #icon>
               <icon-language />
@@ -37,14 +34,23 @@
               {{ item.label }}
             </a-doption>
           </template>
-        </a-dropdown>
+        </a-dropdown> -->
       </li>
       <li>
-        <a-tooltip :content="theme === 'light' ? $t('settings.navbar.theme.toDark') : $t('settings.navbar.theme.toLight')">
+        <a-tooltip :content="theme === 'light' ? $t('settings.navbar.theme.toDark') : $t('settings.navbar.theme.toLight')" >
           <a-button class="nav-btn" type="outline" :shape="'circle'" @click="handleToggleTheme">
             <template #icon>
               <icon-moon-fill v-if="theme === 'dark'" />
               <icon-sun-fill v-else />
+            </template>
+          </a-button>
+        </a-tooltip>
+      </li>
+      <li>
+        <a-tooltip :content="$t('settings.title')">
+          <a-button class="nav-btn" type="outline" :shape="'circle'" @click="toggleNav">
+            <template #icon>
+              <icon-swap />
             </template>
           </a-button>
         </a-tooltip>
@@ -59,12 +65,8 @@
             </a-badge>
           </div>
         </a-tooltip>
-        <a-popover
-          trigger="click"
-          :arrow-style="{ display: 'none' }"
-          :content-style="{ padding: 0, minWidth: '400px' }"
-          content-class="message-popover"
-        >
+        <a-popover trigger="click" :arrow-style="{ display: 'none' }" :content-style="{ padding: 0, minWidth: '400px' }"
+          content-class="message-popover">
           <div ref="refBtn" class="ref-btn"></div>
           <template #content>
             <message-box />
@@ -95,7 +97,7 @@
           <a-avatar :size="32" :style="{ marginRight: '8px' }">
             <img alt="avatar" :src="avatar" />
           </a-avatar>
-          <template #content>
+          <!-- <template #content>
             <a-doption>
               <a-space @click="switchGit">
                 <icon-github />
@@ -158,7 +160,7 @@
                 </span>
               </a-space>
             </a-doption>
-          </template>
+          </template> -->
         </a-dropdown>
       </li>
     </ul>
@@ -172,7 +174,7 @@ import { LOCALE_OPTIONS } from '@/locale'
 import { useAppStore, useUserStore } from '@/store'
 import { Message } from '@arco-design/web-vue'
 import { useDark, useFullscreen, useToggle } from '@vueuse/core'
-import { computed, inject, ref } from 'vue'
+import { computed, inject, ref, nextTick } from 'vue'
 import MessageBox from '../message-box/index.vue'
 
 const appStore = useAppStore()
@@ -199,6 +201,14 @@ const isDark = useDark({
     appStore.toggleTheme(dark)
   },
 })
+const navbar = ref(null);
+let flag = 1; 
+const toggleNav = () => {
+  navbar.value.style.backgroundColor = flag === 1 ? '#a0cea8' : '#fff';
+
+  // 切换 flag 的值，1 <-> 2
+  flag = flag === 1 ? 2 : 1;
+}
 const toggleTheme = useToggle(isDark)
 const handleToggleTheme = () => {
   toggleTheme()
@@ -284,6 +294,7 @@ const open = (val: string) => {
   .nav-btn {
     border-color: rgb(var(--gray-2));
     color: rgb(var(--gray-8));
+    // background-color: #fff;
     font-size: 16px;
   }
 

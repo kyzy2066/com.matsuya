@@ -36,6 +36,7 @@ export default defineConfig({
     preprocessorOptions: {
       less: {
         modifyVars: {
+          'arcoblue-6': '#a0cea8',
           hack: `true; @import (reference) "${resolve('src/assets/style/breakpoint.less')}";`,
         },
         javascriptEnabled: true,

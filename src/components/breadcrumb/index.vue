@@ -1,5 +1,5 @@
 <template>
-  <a-breadcrumb class="container-breadcrumb">
+  <a-breadcrumb class="container-breadcrumb" size="small">
     <a-breadcrumb-item>
       <icon-apps />
     </a-breadcrumb-item>

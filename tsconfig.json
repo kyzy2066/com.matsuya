@@ -3,7 +3,7 @@
     "target": "ES2020",
     "module": "ES2020",
     "moduleResolution": "node",
-    "strict": true,
+    // "strict": true,
     "jsx": "preserve",
     "allowJs": true,
     "sourceMap": true,
@@ -11,9 +11,20 @@
     "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": [
+        "src/*"
+      ]
     },
-    "lib": ["es2020", "dom"]
+    "lib": [
+      "es2020",
+      "dom"
+    ],
+    "skipLibCheck": true, // 忽略 node_modules 里的类型检查
+    "noImplicitAny": false, // 允许隐式 any
+    "strict": false,
   },
-  "include": ["src/**/*", "src/**/*.vue"]
+  "include": [
+    "src/**/*",
+    "src/**/*.vue"
+  ]
 }

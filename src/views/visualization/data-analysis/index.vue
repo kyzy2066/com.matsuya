@@ -8,16 +8,21 @@
         </div>
         <div>
           <a-grid :cols="24" :col-gap="16" :row-gap="16">
-            <a-grid-item :span="{ xs: 24, sm: 24, md: 24, lg: 24, xl: 16, xxl: 16 }">
+            <!-- <a-grid-item :span="{ xs: 24, sm: 24, md: 24, lg: 24, xl: 8, xxl: 8 }">
+              <PopularAuthor />
+            </a-grid-item> -->
+            <!-- <a-grid-item :span="{ xs: 24, sm: 24, md: 24, lg: 24, xl: 16, xxl: 16 }"> -->
+            <a-grid-item :span="{ xs: 24, sm: 24, md: 24, lg: 24, xl: 24, xxl: 24 }">
+
               <ContentPublishRatio />
             </a-grid-item>
-            <a-grid-item :span="{ xs: 24, sm: 24, md: 24, lg: 24, xl: 8, xxl: 8 }">
-              <PopularAuthor />
-            </a-grid-item>
+    
           </a-grid>
         </div>
         <div>
-          <ContentPeriodAnalysis />
+          <!-- <ContentPeriodAnalysis /> -->
+          <ExTable />
+
         </div>
       </a-space>
     </a-space>
@@ -29,6 +34,8 @@ import PublicOpinion from './components/public-opinion.vue'
 import ContentPeriodAnalysis from './components/content-period-analysis.vue'
 import ContentPublishRatio from './components/content-publish-ratio.vue'
 import PopularAuthor from './components/popular-author.vue'
+import ExTable from './components/ex-table.vue'
+
 </script>
 
 <script lang="ts">

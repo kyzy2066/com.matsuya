@@ -37,13 +37,13 @@ setupMock({
         })
       }
       return successResponseWrap({
-        count: 5670,
+        count: 20000,
         growth: 206.32,
         chartData: [
           // itemStyle for demo
-          { name: '文本类', value: 25, itemStyle: { color: '#8D4EDA' } },
-          { name: '图文类', value: 35, itemStyle: { color: '#165DFF' } },
-          { name: '视频类', value: 40, itemStyle: { color: '#00B2FF' } },
+          { name: 'Example1', value: 25, itemStyle: { color: '#8D4EDA' } },
+          { name: 'Example2', value: 35, itemStyle: { color: '#165DFF' } },
+          { name: 'Example3', value: 40, itemStyle: { color: '#00B2FF' } },
         ],
       })
     })

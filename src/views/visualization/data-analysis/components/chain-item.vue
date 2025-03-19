@@ -196,11 +196,13 @@ const renderData = ref<PublicOpinionAnalysisRes>({
   growth: 0,
   chartData: [],
 })
+const sum = { Q1: 20000, Q2: 35000, Q3: 50000, Q4: 65000 }
 const chartOption = ref({})
 const fetchData = async (params: PublicOpinionAnalysis) => {
   try {
     const { data } = await queryPublicOpinionAnalysis(params)
     renderData.value = data
+    renderData.value.count = sum[props.title]
     const { chartData } = data
     if (props.chartType === 'bar') {
       chartData.forEach((el, idx) => {
@@ -240,27 +242,32 @@ fetchData({ quota: props.quota })
 :deep(.arco-card) {
   border-radius: 4px;
 }
+
 :deep(.arco-card-body) {
   width: 100%;
   height: 134px;
   padding: 0;
 }
+
 .content-wrap {
   width: 100%;
   padding: 16px;
   white-space: nowrap;
 }
+
 :deep(.content) {
   float: left;
   width: 108px;
   height: 102px;
 }
+
 :deep(.arco-statistic) {
   .arco-statistic-title {
     font-size: 16px;
     font-weight: bold;
     white-space: nowrap;
   }
+
   .arco-statistic-content {
     margin-top: 10px;
   }
