@@ -1,6 +1,10 @@
 body {
   --color-menu-dark-bg: #a0cea8;
+  --color-menu-color: var(--color-menu-color);
+
+
   // --color-menu-dark-hover: #e95f1f;
+
 
   .arco-menu-dark {
 
@@ -8,30 +12,29 @@ body {
     .arco-menu-group-title,
     .arco-menu-pop-header,
     .arco-menu-inline-header {
-      color: #000000;
+      color: var(--color-menu-color);
 
       * {
-        color: #000000;
+        color: var(--color-menu-color);
       }
     }
 
     .arco-menu-inline-header.arco-menu-selected {
-      color: #000000;
-
+      color: var(--color-menu-color);
 
       * {
-        color: #000000;
+        color: var(--color-menu-color);
 
       }
     }
 
     .arco-menu-inline-header:hover {
-      color: #000000;
+      color: var(--color-menu-color);
       background-color: #7e5f7826;
 
 
       * {
-        color: #000000;
+        color: var(--color-menu-color);
 
       }
     }
@@ -40,8 +43,8 @@ body {
       // background-color: #60494920;
       background-color: #7e5f7826;
       font-size: 102%;
-      color: #000000;
-      border-right: 2px solid #000000;
+      color: var(--color-menu-color);
+      border-right: 2px solid var(--color-menu-color);
     }
 
     .arco-menu-vertical {

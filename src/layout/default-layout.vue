@@ -27,8 +27,8 @@
                 />
                 <img 
                   v-else
-                  alt="logo"
-                  src="../assets/images/matsuyalogo.svg"
+                  alt="matsuyalogo"
+                  src="/matsuyalogo.svg"
                   height="19"
                 />
                 <!-- <a-typography-title style="font-weight: 100;font-size: 18px;">Matsuya Ginza</a-typography-title> -->

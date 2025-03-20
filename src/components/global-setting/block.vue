@@ -3,7 +3,8 @@
     <h5 class="title">{{ title }}</h5>
     <div v-for="option in options" :key="option.name" class="switch-wrapper">
       <span>{{ $t(option.name) }}</span>
-      <form-wrapper :type="option.type || 'switch'" :name="option.key" :default-value="option.defaultVal" @input-change="handleChange" />
+      <form-wrapper :type="option.type || 'switch'" :name="option.key" :default-value="option.defaultVal"
+        @input-change="handleChange" />
     </div>
   </div>
 </template>
@@ -34,7 +35,8 @@ defineProps({
 const appStore = useAppStore()
 const handleChange = async ({ key, value }: { key: string; value: unknown }) => {
   if (key === 'colorWeak') {
-    document.body.style.filter = value ? 'invert(80%)' : 'none'
+    // document.body.style.filter = value ? 'invert(80%)' : 'none'
+    document.documentElement.style.filter = value ? 'invert(100%)' : 'none'
   }
   if (key === 'menuFromServer' && value) {
     await appStore.fetchServerMenuConfig()

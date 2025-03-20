@@ -30,15 +30,24 @@ const useAppStore = defineStore('app', {
 
     // Change theme color
     toggleTheme(dark: boolean) {
-      // console.log(dark)
+      console.log(dark)
+
       // if (false && dark) {
       if (dark) {
 
-        this.theme = 'dark'
-        document.body.setAttribute('arco-theme', 'dark')
+        document.body.style.setProperty('--color-menu-dark-bg', '#000c17');
+        document.body.style.setProperty('--color-menu-color', '#fff');
+
+        // this.theme = 'dark'
       } else {
         this.theme = 'light'
+
+        document.body.style.setProperty('--color-menu-dark-bg', '#a0cea8');
+        document.body.style.setProperty('--color-menu-color', '#000000');
+
+
         document.body.removeAttribute('arco-theme')
+
       }
     },
     toggleDevice(device: string) {
