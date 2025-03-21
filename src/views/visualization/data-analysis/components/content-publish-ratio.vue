@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref, toRefs } from 'vue'
 import { ToolTipFormatterParams } from '@/types/echarts'
 import useLoading from '@/hooks/loading'
 import { queryContentPublish, ContentPublishRecord } from '@/api/visualization'
@@ -82,7 +82,7 @@ const { chartOption } = useChartOption((isDark) => {
         color: '#86909C',
         formatter(value: number, idx: number) {
           if (idx === 0) return `${value}`
-          return `${value / 1000}k`
+          return `${value / 1000}%`
         },
       },
       splitLine: {
@@ -91,6 +91,13 @@ const { chartOption } = useChartOption((isDark) => {
         },
       },
     },
+    dataZoom: [
+      {
+        // type: 'inside', // 允许鼠标滚轮缩放
+
+      },
+      { type: 'slider' }
+    ],
     tooltip: {
       show: true,
       trigger: 'axis',
@@ -105,23 +112,23 @@ const { chartOption } = useChartOption((isDark) => {
     },
     series: [
       {
-        name: 'Example1',
-        data: textChartsData.value,
+        name: 'Conversion rate',
+        data: [...textChartsData.value, ...textChartsData.value],
         stack: 'one',
         type: 'bar',
-        barWidth: 16,
+        barWidth: 8,
         color: isDark ? '#4A7FF7' : '#246EFF',
       },
       {
-        name: 'Example2',
-        data: imgChartsData.value,
+        name: 'Cumlative conversion rate',
+        data: [...imgChartsData.value, ...imgChartsData.value],
         stack: 'two',
         type: 'bar',
         color: isDark ? '#085FEF' : '#00B2FF',
       },
       {
-        name: 'Example3',
-        data: videoChartsData.value,
+        name: 'Repeat rate',
+        data: [...videoChartsData.value, ...videoChartsData.value],
         stack: 'three',
         type: 'bar',
         color: isDark ? '#01349F' : '#81E2FF',
@@ -135,8 +142,15 @@ const { chartOption } = useChartOption((isDark) => {
 const fetchData = async () => {
   setLoading(true)
   try {
+
+
     const { data: chartData } = await queryContentPublish()
-    xAxis.value = chartData[0].x
+    const months = Array.from({ length: 24 }, (_, i) => `${i + 1}`);
+    xAxis.value = months
+    // textChartsData.value = 
+    console.log(imgChartsData.value)
+
+    console.log(videoChartsData.value)
     chartData.forEach((el: ContentPublishRecord) => {
       if (el.name === '纯文本') {
         textChartsData.value = el.y
@@ -145,6 +159,8 @@ const fetchData = async () => {
       }
       videoChartsData.value = el.y
     })
+
+
   } catch (err) {
     // you can report use errorHandler or other
   } finally {

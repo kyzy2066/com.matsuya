@@ -37,6 +37,10 @@ const useAppStore = defineStore('app', {
 
         document.body.style.setProperty('--color-menu-dark-bg', '#000c17');
         document.body.style.setProperty('--color-menu-color', '#fff');
+        // document.body.style.setProperty('--color-select-color', ' #ffffffb8');
+
+       
+        // rgb(var(--arcoblue-6))
 
         // this.theme = 'dark'
       } else {

@@ -34,6 +34,9 @@ defineProps({
 })
 const appStore = useAppStore()
 const handleChange = async ({ key, value }: { key: string; value: unknown }) => {
+  if (key === 'toggleTheme') {
+    appStore.toggleTheme(!value as boolean)
+  }
   if (key === 'colorWeak') {
     // document.body.style.filter = value ? 'invert(80%)' : 'none'
     document.documentElement.style.filter = value ? 'invert(100%)' : 'none'

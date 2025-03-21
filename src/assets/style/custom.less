@@ -1,7 +1,11 @@
 body {
   --color-menu-dark-bg: #a0cea8;
-  --color-menu-color: var(--color-menu-color);
+  --color-menu-color: #000000;
+  // --color-select-color: #7e5f7826;
+  --color-select-color: #ffffffb8;
 
+  
+  // --primary-6: red;
 
   // --color-menu-dark-hover: #e95f1f;
 
@@ -26,11 +30,13 @@ body {
         color: var(--color-menu-color);
 
       }
+
+
     }
 
     .arco-menu-inline-header:hover {
       color: var(--color-menu-color);
-      background-color: #7e5f7826;
+      background-color: var(--color-select-color);
 
 
       * {
@@ -40,11 +46,14 @@ body {
     }
 
     .arco-menu-item:hover {
-      // background-color: #60494920;
-      background-color: #7e5f7826;
-      font-size: 102%;
+      background-color: var(--color-select-color);
       color: var(--color-menu-color);
-      border-right: 2px solid var(--color-menu-color);
+      // border-right: 2px solid var(--color-menu-color);
+    }
+
+    .arco-menu-item.arco-menu-selected {
+      background-color: var(--color-select-color);
+
     }
 
     .arco-menu-vertical {

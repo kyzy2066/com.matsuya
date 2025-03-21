@@ -16,8 +16,9 @@
     @cancel="cancel"
   >
     <template #title>{{ $t('settings.title') }}</template>
-    <Block :options="contentOpts" :title="$t('settings.content')" />
+    <!-- <Block :options="contentOpts" :title="$t('settings.content')" /> -->
     <Block :options="othersOpts" :title="$t('settings.otherSettings')" />
+
     <a-alert>{{ $t('settings.alertContent') }}</a-alert>
   </a-drawer>
 </template>
@@ -63,10 +64,15 @@ const contentOpts = computed(() => [
   },
 ])
 const othersOpts = computed(() => [
+  // {
+  //   name: 'settings.colorWeak',
+  //   key: 'colorWeak',
+  //   defaultVal: appStore.colorWeak,
+  // },
   {
-    name: 'settings.colorWeak',
-    key: 'colorWeak',
-    defaultVal: appStore.colorWeak,
+    name: 'settings.toggleTheme',
+    key: 'toggleTheme',
+    defaultVal: appStore.theme,
   },
 ])
 
