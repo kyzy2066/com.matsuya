@@ -30,12 +30,28 @@
 </template>
 
 <script lang="ts" setup>
+import { ref } from 'vue'
 import PublicOpinion from './components/public-opinion.vue'
 import ContentPeriodAnalysis from './components/content-period-analysis.vue'
 import ContentPublishRatio from './components/content-publish-ratio.vue'
 import PopularAuthor from './components/popular-author.vue'
 import ExTable from './components/ex-table.vue'
 
+
+
+
+
+const data = ref(null);
+
+const fetchData = async () => {
+  const response = await fetch('http://localhost:8080/MatsuyaTestSayHello');
+  if (response.ok) {
+    data.value = await response.text(); // 假设返回的是文本数据
+  } else {
+    console.error('请求失败', response.status);
+  }
+};
+fetchData()
 </script>
 
 <script lang="ts">
