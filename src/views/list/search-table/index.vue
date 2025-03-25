@@ -321,6 +321,7 @@ const fetchData = async (params: PolicyParams = { current: 1, pageSize: 20 }) =>
     renderData.value = data.list
     pagination.current = params.current
     pagination.total = data.total
+    console.log(data)
   } catch (err) {
     // you can report use errorHandler or other
   } finally {

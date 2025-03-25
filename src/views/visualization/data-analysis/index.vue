@@ -16,7 +16,7 @@
 
               <ContentPublishRatio />
             </a-grid-item>
-    
+
           </a-grid>
         </div>
         <div>
@@ -43,15 +43,10 @@ import ExTable from './components/ex-table.vue'
 
 const data = ref(null);
 
-const fetchData = async () => {
-  const response = await fetch('http://localhost:8080/MatsuyaTestSayHello');
-  if (response.ok) {
-    data.value = await response.text(); // 假设返回的是文本数据
-  } else {
-    console.error('请求失败', response.status);
-  }
-};
-fetchData()
+
+// fetchMockData()
+// fetchMockData2()
+
 </script>
 
 <script lang="ts">
@@ -75,6 +70,7 @@ export default {
   margin: 0 0 12px 0;
   font-size: 14;
 }
+
 :deep(.section-title) {
   margin: 0 0 12px 0;
   font-size: 14px;
